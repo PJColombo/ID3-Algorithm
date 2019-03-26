@@ -9,13 +9,31 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>ID3 Algorithm</h1>
-    <div class="files-container">
-        Upload attributes file: <input type="file" name="attr-file" id="inp-attrfile">
-        <br>
-        Upload data file: <input type="file" name="data-file" id="inp-datafile">
-        <br>
-        <button type="button" id="btn-execute">Execute</button>
+
+    <div class="container">
+
+        <h1>ID3 Algorithm</h1>
+
+        <form>
+            <div class="form-group">
+                <label for="inp-attrfile">Upload attribute file</label>
+                <input type="file" class="form-control-file" id="inp-attrfile">
+            </div>
+            <div class="form-group">
+                    <label for="inp-datafile">Upload data file</label>
+                <input type="file" class="form-control-file" id="inp-datafile">
+            </div>
+            <button type="button" id="btn-execute" class="btn btn-outline-primary">Run</button>
+        </form>
+
+        <table class="table" id="input-table">
+            <thead>
+            <tr>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
     </div>
     <script src="./main.js"></script>
 </body>

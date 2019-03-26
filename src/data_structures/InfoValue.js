@@ -1,23 +1,42 @@
 export default class InfoValue {
-    constructor(name, positive) {
-        this.a = 1;
+    constructor(positive) {
+        this.a = 0;
         this.r = this.p = this.n = 0;
         this.pCounter = this.nCounter = 0;
-        if(positive)
+        this.increment(positive);
+        /*if(positive)
             this.pCounter= this.p / this.a;
         else
-            this.nCounter = this.n / this.a;
+            this.nCounter = this.n / this.a;*/
     }
 
     increment(positive) {
         this.a++;
-        if(positive)
+        if(positive.toLowerCase().trim() === "si")
             this.pCounter++;
         else
-            this.nCounter;
+            this.nCounter++;
+        this.n = this.nCounter / this.a;
+        this.p = this.pCounter / this.a;
+
     }
 
     calculateR(total) {
         this.r = this.a / total;
+    }
+
+    calculateEntropy() {
+        let firstElement, secondElement;
+        if(this.n === 0)
+            firstElement = 0;
+        else
+            firstElement = -this.n * Math.log2(this.n);
+
+        if(this.p === 0)
+            secondElement = 0;
+        else
+            secondElement = -this.p * Math.log2(this.p);
+
+        return firstElement + secondElement;
     }
 }
