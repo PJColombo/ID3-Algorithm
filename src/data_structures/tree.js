@@ -1,18 +1,17 @@
 export default class Tree {
-    constructor(root, parent, children) {
+    constructor(root, children) {
         this._root = root;
-        this.parent = parent;
         if(!children)
             this._children = [];
         else
             this._children = children;
     }
 
-    addChild(node) {
-        this._children.push(new Tree(node));
+    addChild(tree) {
+        this._children.push(tree);
     }
-    getChildren(i) {
-        return this._children[i];
+    get children() {
+        return this._children;
     }
     get root() {
         return this._root;

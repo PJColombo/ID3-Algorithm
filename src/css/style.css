@@ -27,8 +27,45 @@ form {
     margin-bottom: 6%;
 }
 
+form button {
+    align-self: flex-end;
+    justify-self: flex-end;
+    width: 8%;
+}
 
+.container {
+    margin-bottom: 5%;
+}
+.tree-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(216,213,222,0.17);
+    padding: 2%;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+}
 
+.tree-container > h3 {
+    margin: 5% 0;
+    align-self: flex-start;
+    border-bottom: 2px solid black;
+}
 
+#tree {
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.rules-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-top: 4px solid white;
+}
 
 
