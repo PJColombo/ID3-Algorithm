@@ -8,6 +8,7 @@ export default class ID3 {
         //Node
         this.initialNode = rootNode;
         this.tree = new Tree();
+        this.decisions = { positive : "+", negative: "-"};
     }
 
     run() {
@@ -22,7 +23,6 @@ export default class ID3 {
         let infoNodes = [];
         let tree;
 
-
         if(!node || node.attributeTable.length === 0)
             return;
         else if(node.dataTable.length === 0) {
@@ -31,12 +31,13 @@ export default class ID3 {
             tree = new Tree(node);
         }
         //Check if all elements are positive.
-        else if(node.dataTable.filter(row => {return row[row.length - 1].toLowerCase().trim() === "si"}).length === node.dataTable.length) {
+        else if(node.dataTable.filter(row => {
+            return row[row.length - 1].toLowerCase().trim() === this.decisions.positive}).length === node.dataTable.length) {
             node.name = node.attributeTable[node.attributeTable.length - 1];
             tree = new Tree(node);
         }
         //Check if all elements are negative.
-        else if(node.dataTable.filter(row => {return row[row.length - 1].toLowerCase().trim() === "no"}).length === node.dataTable.length) {
+        else if(node.dataTable.filter(row => {return row[row.length - 1].toLowerCase().trim() === this.decisions.negative}).length === node.dataTable.length) {
             node.name = "No " + node.attributeTable[node.attributeTable.length - 1];
             tree = new Tree(node);
         }
@@ -63,6 +64,7 @@ export default class ID3 {
             });
             //sort nodes by merit.
             infoNodes.sort((a, b) =>  a.merit - b.merit );
+            console.log(infoNodes[0]);
             let attrName = infoNodes[0].nameAttr, attrPos = node.attributeTable.indexOf(attrName);
             node.infoNode = infoNodes[0]; node.name = infoNodes[0].nameAttr;
             tree = new Tree(node);

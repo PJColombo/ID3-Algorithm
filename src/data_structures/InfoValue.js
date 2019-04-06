@@ -4,15 +4,11 @@ export default class InfoValue {
         this.r = this.p = this.n = 0;
         this.pCounter = this.nCounter = 0;
         this.increment(positive);
-        /*if(positive)
-            this.pCounter= this.p / this.a;
-        else
-            this.nCounter = this.n / this.a;*/
     }
 
     increment(positive) {
         this.a++;
-        if(positive.toLowerCase().trim() === "si")
+        if(positive.toLowerCase().trim() === "+")
             this.pCounter++;
         else
             this.nCounter++;
