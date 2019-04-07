@@ -142,7 +142,7 @@ function drawTree(tree) {
 function buildDiagram(currentTree, diagram, counter, rule, currParentName, currParentID) {
 
     let currentTreeName = currentTree.root.name,
-        branch = currentTree.root.branch, currentTreeID = currentTreeName.replace(/\s/g, "") + counter;
+        branch = currentTree.root.branch, currentTreeID = currentTreeName.replace(/\s/g, "") + counter * Math.random();
     branch = branch ? branch.replace(/\s/g, "") : branch;
     if(currParentName && currParentID) {
         if(branch) {
